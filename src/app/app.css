@@ -92,6 +92,19 @@
   padding: 0 2rem;
 }
 
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   background-size: 200% 200%;
   animation: gradientFlow 3s ease infinite;
   cursor: pointer;
@@ -105,15 +118,15 @@
 @keyframes gradientFlow {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.nav-brand {
-  font-size: 1.5rem;
-  font-weight: 700;secondary);
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
@@ -137,16 +150,20 @@
   height: 2px;
   background: var(--gradient);
   transition: width 0.3s ease;
-  box-shadow: 0 0 10px var(--primary-color)
-.nav-link:hover {
-  color: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;var(--bg-dark);
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background: var(--bg-dark);
   position: relative;
   overflow: hidden;
 }
@@ -176,23 +193,6 @@
 @keyframes pulseGlow {
   0%, 100% { transform: scale(1); opacity: 0.5; }
   50% { transform: scale(1.2); opacity: 0.8; }
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Hero Section */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
-  background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
 }
 
 .hero-content {
@@ -353,6 +353,7 @@
   background: var(--gradient);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.3s ease;
