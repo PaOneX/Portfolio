@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
     longDescription:
       "Built a scalable e-commerce solution featuring secure authentication, real-time inventory management, a seamless shopping cart experience, and Stripe payment integration. The platform supports admin dashboards, order tracking, and responsive design across all devices.",
-    technologies: ["Angular", "Node.js", "MongoDB", "Stripe"],
+    technologies: ["PHP", "MySQL", "Stripe"],
     image: "/images/project-ecommerce.jpg",
     link: "#",
     github: "#",

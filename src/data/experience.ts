@@ -6,37 +6,17 @@ export interface Experience {
 }
 
 export const experience: Experience[] = [
+  
   {
-    company: "Tech Company Inc.",
-    position: "Senior Full Stack Developer",
-    period: "2022 - Present",
+    company: "Codex",
+    position: "Business Analyst",
+    period: "2026 January - 2026 July",
     description: [
-      "Led development of enterprise web applications serving 100K+ users",
-      "Implemented microservices architecture improving system scalability by 60%",
-      "Mentored junior developers and conducted code reviews",
-      "Collaborated with cross-functional teams using Agile methodology",
-    ],
-  },
-  {
-    company: "Digital Solutions Ltd.",
-    position: "Full Stack Developer",
-    period: "2020 - 2022",
-    description: [
-      "Developed and maintained multiple client-facing web applications",
-      "Optimized application performance resulting in 40% faster load times",
-      "Integrated third-party APIs and payment gateways",
+      "Analyzed business requirements and translated them into technical solutions",
+      "Collaborated with developers to implement business logic and data models",
+      "Developed and maintained the company's website and internal tools",
+      "Optimized database queries and improved application performance",
       "Participated in daily stand-ups and sprint planning sessions",
-    ],
-  },
-  {
-    company: "Startup Ventures",
-    position: "Junior Developer",
-    period: "2018 - 2020",
-    description: [
-      "Built responsive user interfaces using modern frameworks",
-      "Implemented RESTful APIs and database schemas",
-      "Fixed bugs and improved code quality through testing",
-      "Contributed to internal tools and automation scripts",
     ],
   },
 ];

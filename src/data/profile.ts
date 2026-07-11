@@ -1,5 +1,6 @@
 export const profile = {
   name: "Pawan Sarathchnadra",
+  image: "/profile.png",
   title: "Full Stack Developer",
   titles: [
     "Full Stack Developer",
@@ -15,7 +16,7 @@ export const profile = {
   linkedin: "https://linkedin.com/in/pawansarathchandra",
   about: `Passionate Full Stack Developer with expertise in modern web technologies. I specialize in creating scalable, user-friendly applications with clean code and best practices. With a strong foundation in both frontend and backend development, I love turning complex problems into elegant solutions.`,
   stats: {
-    yearsExperience: 7,
+    yearsExperience: 5,
     projectsCompleted: 15,
     technologies: 20,
   },
