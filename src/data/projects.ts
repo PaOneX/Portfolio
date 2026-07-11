@@ -41,6 +41,10 @@ export const projects: Project[] = [
     technologies: ["React Native", "Node.js", "MySQL", "Socket.io"],
     link: "#",
     github: "#",
+    demoImages: [
+      "/images/projects/restaurant-pos/login.png",
+      "/images/projects/restaurant-pos/posInterface.png"
+    ],
     status: "completed",
   },
   {
