@@ -42,8 +42,8 @@ export const projects: Project[] = [
     link: "#",
     github: "#",
     demoImages: [
-      "/images/projects/restaurant-pos/login.png",
-      "/images/projects/restaurant-pos/posInterface.png"
+      "/images/projects/restaurantPOS/login.png",
+      "/images/projects/restaurantPOS/posInterface.png",
     ],
     status: "completed",
   },
