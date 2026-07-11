@@ -38,12 +38,17 @@ export const projects: Project[] = [
       "Point-of-sale system for restaurants with order management, table tracking, kitchen display, and a companion mobile app for waitstaff.",
     longDescription:
       "A restaurant POS solution that streamlines order taking, table management, and kitchen workflows. The mobile app lets waitstaff send orders directly to the kitchen, track table status, and process payments — all synced in real time with the main POS terminal.",
-    technologies: ["React Native", "Node.js", "MySQL", "Socket.io"],
+    technologies: ["JavaFX", "MySQL", "JasperReports", "Dart", "Flutter"],
+    image: "/images/projects/restaurantPOS/login.png",
     link: "#",
     github: "#",
     demoImages: [
       "/images/projects/restaurantPOS/login.png",
       "/images/projects/restaurantPOS/posInterface.png",
+      "/images/projects/restaurantPOS/mobileSignup.jpeg",
+      "/images/projects/restaurantPOS/mobileLogin.jpeg",
+      "/images/projects/restaurantPOS/mobileMenu.jpeg",
+      "/images/projects/restaurantPOS/cart.jpeg",
     ],
     status: "completed",
   },
@@ -54,9 +59,27 @@ export const projects: Project[] = [
       "Retail point-of-sale system with barcode scanning, inventory management, receipt printing, and sales reporting for supermarkets.",
     longDescription:
       "A supermarket POS built for high-volume retail operations. Features include barcode scanning, real-time stock updates, multi-payment support, receipt printing, and daily sales reports. Designed for fast checkout and accurate inventory tracking.",
-    technologies: ["Java", "MySQL", "Swing", "JasperReports"],
+    technologies: ["JavaFX", "MySQL", "JasperReports"],
+    image: "/images/projects/supermarket-pos/cover.png",
     link: "#",
     github: "#",
+    status: "completed",
+  },
+  {
+    slug: "car-rental-system",
+    title: "Car Rental System",
+    description:
+      "A car rental system that allows users to rent cars for a certain period of time.",
+    longDescription:
+      "A car rental system that allows users to rent cars for a certain period of time. The system allows users to view the available cars, rent a car, and return a car.",
+    technologies: ["Angular", "MySQL", "Spring Boot"],
+    image: "/images/projects/car-rental/dashboard.png",
+    link: "#",
+    github: "#",
+    demoImages: [
+      "/images/projects/car-rental/signUp.png",
+      "/images/projects/car-rental/dashboard.png",
+    ],
     status: "completed",
   },
   {

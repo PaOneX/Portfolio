@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, ArrowUpRight } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/SocialIcons";
-import { projects } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerChildren } from "@/components/motion/StaggerChildren";
 import { fadeInUp } from "@/lib/motion-variants";
@@ -18,6 +19,45 @@ const projectGradients = [
   "from-brand-violet/30 via-brand-primary/20 to-brand-accent/15",
   "from-brand-primary/20 via-brand-accent/25 to-brand-violet/20",
 ];
+
+function getProjectCover(project: Project) {
+  return project.image ?? project.demoImages?.[0];
+}
+
+function ProjectCoverImage({
+  project,
+  gradient,
+  priority = false,
+}: {
+  project: Project;
+  gradient: string;
+  priority?: boolean;
+}) {
+  const cover = getProjectCover(project);
+
+  return (
+    <>
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+      {cover ? (
+        <>
+          <Image
+            src={cover}
+            alt={project.title}
+            fill
+            priority={priority}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+        </>
+      ) : (
+        <span className="relative text-4xl font-bold text-brand-primary/25 sm:text-5xl md:text-8xl">
+          {project.title.charAt(0)}
+        </span>
+      )}
+    </>
+  );
+}
 
 export function Projects() {
   const reducedMotion = useReducedMotion();
@@ -45,20 +85,16 @@ export function Projects() {
               <Link href={`/projects/${featured.slug}`} className="block">
                 <div className="glow-border glass-card glow-border-visible relative overflow-hidden rounded-2xl sm:rounded-3xl">
                   <div className="grid md:grid-cols-2">
-                    <div
-                      className={`relative flex min-h-[180px] items-center justify-center bg-gradient-to-br p-6 sm:min-h-[220px] sm:p-8 md:min-h-[280px]`}
-                      style={{ backgroundImage: undefined }}
-                    >
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${projectGradients[0]}`}
+                    <div className="relative flex min-h-[180px] items-center justify-center overflow-hidden bg-gradient-to-br p-6 sm:min-h-[220px] sm:p-8 md:min-h-[280px]">
+                      <ProjectCoverImage
+                        project={featured}
+                        gradient={projectGradients[0]}
+                        priority
                       />
-                      <span className="relative text-6xl font-black text-brand-primary/20 sm:text-7xl md:text-8xl">
-                        {featured.title.charAt(0)}
-                      </span>
-                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                      <div className="absolute top-3 left-3 z-10 sm:top-4 sm:left-4">
                         <Badge className="bg-brand-primary/90 text-white">Featured</Badge>
                       </div>
-                      <div className="absolute right-4 bottom-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-primary text-white shadow-lg shadow-brand-primary/30 sm:right-6 sm:bottom-6 sm:h-12 sm:w-12">
+                      <div className="absolute right-4 bottom-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-brand-primary text-white shadow-lg shadow-brand-primary/30 sm:right-6 sm:bottom-6 sm:h-12 sm:w-12">
                         <ArrowUpRight className="h-5 w-5" />
                       </div>
                     </div>
@@ -97,13 +133,14 @@ export function Projects() {
             >
               <div className="glow-border glass-card glow-border-visible relative h-full overflow-hidden rounded-2xl">
                 <div
-                  className={`relative flex h-36 items-center justify-center bg-gradient-to-br sm:h-44 ${projectGradients[(index + 1) % projectGradients.length]}`}
+                  className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br sm:h-44 ${projectGradients[(index + 1) % projectGradients.length]}`}
                 >
-                  <span className="text-4xl font-bold text-brand-primary/25 sm:text-5xl">
-                    {project.title.charAt(0)}
-                  </span>
+                  <ProjectCoverImage
+                    project={project}
+                    gradient={projectGradients[(index + 1) % projectGradients.length]}
+                  />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center bg-background/70 backdrop-blur-sm transition-all duration-300 ${
+                    className={`absolute inset-0 z-10 flex items-center justify-center bg-background/70 backdrop-blur-sm transition-all duration-300 ${
                       isTouch ? "opacity-0" : "opacity-0 group-hover:opacity-100"
                     }`}
                   >
