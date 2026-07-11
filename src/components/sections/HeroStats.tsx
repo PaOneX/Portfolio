@@ -7,9 +7,9 @@ import { fadeInUp } from "@/lib/motion-variants";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const stats = [
-  { value: profile.stats.yearsExperience, suffix: "+", label: "Years" },
-  { value: profile.stats.projectsCompleted, suffix: "+", label: "Projects" },
-  { value: profile.stats.technologies, suffix: "+", label: "Tech Stack" },
+  { value: profile.stats.yearsExperience, suffix: "+", label: "Years", shortLabel: "Yrs" },
+  { value: profile.stats.projectsCompleted, suffix: "+", label: "Projects", shortLabel: "Proj" },
+  { value: profile.stats.technologies, suffix: "+", label: "Tech Stack", shortLabel: "Tech" },
 ];
 
 export function HeroStats() {
@@ -29,14 +29,15 @@ export function HeroStats() {
         <motion.div
           key={stat.label}
           variants={fadeInUp}
-          className="glass-card glow-border-visible rounded-xl px-3 py-4 text-center sm:px-4 sm:py-5"
+          className="glass-card glow-border-visible min-w-0 rounded-xl px-2 py-4 text-center sm:px-4 sm:py-5"
           whileTap={reducedMotion ? {} : { scale: 0.97 }}
         >
-          <p className="text-xl font-bold text-gradient sm:text-2xl lg:text-3xl">
+          <p className="text-lg font-bold text-gradient sm:text-2xl lg:text-3xl">
             <CountUp end={stat.value} suffix={stat.suffix} />
           </p>
           <p className="mt-0.5 text-[10px] font-medium text-muted-foreground sm:text-xs">
-            {stat.label}
+            <span className="sm:hidden">{stat.shortLabel}</span>
+            <span className="hidden sm:inline">{stat.label}</span>
           </p>
         </motion.div>
       ))}

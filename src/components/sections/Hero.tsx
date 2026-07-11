@@ -166,7 +166,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="lg:mt-0">
+            <div className="pb-3 pr-3 lg:mt-0">
               <HeroTerminal compact />
             </div>
 

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { profile } from "@/data/profile";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { useIsMobile } from "@/hooks/useMediaQuery";
 
 const GitHubCalendar = dynamic(
   () => import("react-github-calendar").then((mod) => mod.GitHubCalendar),
@@ -19,6 +20,7 @@ const GitHubCalendar = dynamic(
 
 export function GitHubActivity() {
   const { resolvedTheme } = useTheme();
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -35,15 +37,17 @@ export function GitHubActivity() {
         />
 
         <FadeIn delay={0.2}>
-          <div className="glow-border glass-card mx-auto max-w-4xl overflow-x-auto rounded-2xl p-6 sm:p-8">
+          <div className="glow-border glass-card mx-auto max-w-4xl overflow-x-auto rounded-2xl p-4 sm:p-8">
             {mounted && (
-              <GitHubCalendar
-                username={profile.githubUsername}
-                colorScheme={resolvedTheme === "light" ? "light" : "dark"}
-                fontSize={12}
-                blockSize={12}
-                blockMargin={4}
-              />
+              <div className="mx-auto w-fit min-w-0">
+                <GitHubCalendar
+                  username={profile.githubUsername}
+                  colorScheme={resolvedTheme === "light" ? "light" : "dark"}
+                  fontSize={isMobile ? 10 : 12}
+                  blockSize={isMobile ? 10 : 12}
+                  blockMargin={isMobile ? 3 : 4}
+                />
+              </div>
             )}
           </div>
         </FadeIn>

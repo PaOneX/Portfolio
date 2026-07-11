@@ -28,13 +28,13 @@ export function About() {
 
         <div className="grid items-center gap-10 lg:grid-cols-5 lg:gap-14">
           <motion.div
-            className="relative lg:col-span-2"
+            className="relative pb-3 pr-3 lg:col-span-2"
             initial={reducedMotion ? false : "hidden"}
             whileInView={reducedMotion ? undefined : "visible"}
             viewport={{ once: true, margin: "-80px" }}
             variants={slideInLeft}
           >
-            <div className="glow-border glass-card glow-border-visible relative mx-auto aspect-square max-w-[280px] overflow-hidden rounded-3xl p-1 sm:max-w-sm">
+            <div className="glow-border glass-card glow-border-visible relative mx-auto aspect-square max-w-[280px] rounded-3xl p-1 sm:max-w-sm">
               <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
                 <Image
                   src={profile.image}
@@ -45,8 +45,10 @@ export function About() {
                   priority
                 />
               </div>
-              <div className="absolute -right-3 -bottom-3 rounded-xl border border-brand-accent/30 bg-brand-accent/10 px-3 py-2 backdrop-blur-md">
-                <p className="text-xs font-semibold text-brand-accent">7+ yrs</p>
+              <div className="absolute -right-2 -bottom-2 z-10 rounded-xl border border-brand-accent/30 bg-brand-accent/10 px-3 py-2 backdrop-blur-md sm:-right-3 sm:-bottom-3">
+                <p className="text-xs font-semibold whitespace-nowrap text-brand-accent">
+                  {profile.stats.yearsExperience}+ yrs
+                </p>
               </div>
             </div>
           </motion.div>
