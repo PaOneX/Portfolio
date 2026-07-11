@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
@@ -54,15 +55,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           Back to Projects
         </Link>
 
-        <div className="mb-8 h-64 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-primary/30 to-brand-accent/20">
-          <div className="flex h-full items-center justify-center">
-            <span className="text-6xl font-bold text-brand-primary/40">
-              {project.title.charAt(0)}
-            </span>
-          </div>
+        <div className="relative mb-8 h-64 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-primary/30 to-brand-accent/20">
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center">
+              <span className="text-6xl font-bold text-brand-primary/40">
+                {project.title.charAt(0)}
+              </span>
+            </div>
+          )}
         </div>
 
-        <h1 className="mb-4 text-4xl font-bold">{project.title}</h1>
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <h1 className="text-4xl font-bold">{project.title}</h1>
+          {project.status === "pending" && (
+            <Badge variant="outline" className="border-amber-500/50 text-amber-600">
+              In Progress
+            </Badge>
+          )}
+        </div>
         <p className="mb-6 max-w-3xl text-lg text-muted-foreground">
           {project.longDescription}
         </p>
@@ -100,19 +118,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
-        {project.demoVideo && (
+        {project.demoImages && project.demoImages.length > 0 && (
           <div className="glass overflow-hidden rounded-2xl">
             <h2 className="border-b border-border/50 px-6 py-4 text-lg font-semibold">
-              Demo Video
+              Screenshots
             </h2>
-            <div className="aspect-video">
-              <iframe
-                src={project.demoVideo}
-                title={`${project.title} demo`}
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="grid gap-4 p-6 sm:grid-cols-2">
+              {project.demoImages.map((src, index) => (
+                <div
+                  key={src}
+                  className="relative aspect-video overflow-hidden rounded-xl border border-border/50 bg-muted/30"
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         )}

@@ -7,59 +7,65 @@ export interface Project {
   image?: string;
   link?: string;
   github?: string;
-  demoVideo?: string;
+  demoImages?: string[];
+  status?: "pending" | "completed";
 }
 
 export const projects: Project[] = [
   {
     slug: "e-commerce-platform",
-    title: "E-Commerce Platform",
+    title: "Lagatama Craft",
     description:
-      "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
+      "A full-featured e-commerce platform for handcrafted goods with user authentication, product catalog, shopping cart, and PayHere payment integration.",
     longDescription:
-      "Built a scalable e-commerce solution featuring secure authentication, real-time inventory management, a seamless shopping cart experience, and Stripe payment integration. The platform supports admin dashboards, order tracking, and responsive design across all devices.",
-    technologies: ["PHP", "MySQL", "Stripe"],
-    image: "/images/project-ecommerce.jpg",
+      "Built a scalable e-commerce solution for Lagatama Craft featuring secure authentication with Google sign-in, real-time inventory management, product filtering, a seamless checkout flow, and PayHere payment integration. The platform supports order tracking, delivery fee calculation, and responsive design across all devices.",
+    technologies: ["PHP", "MySQL", "PayHere", "JavaScript"],
+    image: "/images/projects/e-commerce/shop.png",
     link: "#",
     github: "#",
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    demoImages: [
+      "/images/projects/e-commerce/shop.png",
+      "/images/projects/e-commerce/product-detail.png",
+      "/images/projects/e-commerce/checkout.png",
+      "/images/projects/e-commerce/sign-up.png",
+    ],
+    status: "completed",
   },
   {
-    slug: "task-management-app",
-    title: "Task Management App",
+    slug: "restaurant-pos",
+    title: "Restaurant POS with Mobile App",
     description:
-      "Real-time collaborative task management application with drag-and-drop functionality and team collaboration features.",
+      "Point-of-sale system for restaurants with order management, table tracking, kitchen display, and a companion mobile app for waitstaff.",
     longDescription:
-      "A collaborative productivity tool enabling teams to organize tasks with drag-and-drop boards, real-time updates via WebSocket, role-based permissions, and activity feeds. Built for speed and seamless team coordination.",
-    technologies: ["React", "Firebase", "Material-UI", "WebSocket"],
-    image: "/images/project-tasks.jpg",
+      "A restaurant POS solution that streamlines order taking, table management, and kitchen workflows. The mobile app lets waitstaff send orders directly to the kitchen, track table status, and process payments — all synced in real time with the main POS terminal.",
+    technologies: ["React Native", "Node.js", "MySQL", "Socket.io"],
     link: "#",
     github: "#",
+    status: "completed",
   },
   {
-    slug: "weather-dashboard",
-    title: "Weather Dashboard",
+    slug: "supermarket-pos",
+    title: "Supermarket POS",
     description:
-      "Interactive weather dashboard showing current conditions and forecasts with beautiful visualizations and location search.",
+      "Retail point-of-sale system with barcode scanning, inventory management, receipt printing, and sales reporting for supermarkets.",
     longDescription:
-      "An interactive weather application with location-based search, 7-day forecasts, animated weather visualizations using Chart.js, and geolocation support. Designed with a focus on clarity and delightful micro-interactions.",
-    technologies: ["Angular", "TypeScript", "Chart.js", "Weather API"],
-    image: "/images/project-weather.jpg",
+      "A supermarket POS built for high-volume retail operations. Features include barcode scanning, real-time stock updates, multi-payment support, receipt printing, and daily sales reports. Designed for fast checkout and accurate inventory tracking.",
+    technologies: ["Java", "MySQL", "Swing", "JasperReports"],
     link: "#",
     github: "#",
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    status: "completed",
   },
   {
-    slug: "social-media-analytics",
-    title: "Social Media Analytics",
+    slug: "lms",
+    title: "Learning Management System",
     description:
-      "Analytics platform for tracking social media metrics, engagement rates, and audience insights with comprehensive reports.",
+      "An online learning platform for course management, student enrollment, assignments, and progress tracking.",
     longDescription:
-      "A data-driven analytics platform that aggregates social media metrics across platforms, generates engagement reports, and visualizes audience demographics with D3.js charts. Includes exportable PDF reports and scheduled email digests.",
-    technologies: ["Python", "Django", "PostgreSQL", "D3.js"],
-    image: "/images/project-analytics.jpg",
+      "A learning management system that enables instructors to create and manage courses, upload materials, assign work, and track student progress. Students can enroll in courses, submit assignments, and view grades — all from a single platform.",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
     link: "#",
     github: "#",
+    status: "pending",
   },
 ];
 
